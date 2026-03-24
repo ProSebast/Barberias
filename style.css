@@ -1439,3 +1439,96 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* ========== DASHBOARD STYLES ========== */
+        #dashboard-section {
+            background: var(--dark-lighter);
+            min-height: 80vh;
+        }
+
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            background: var(--dark-card);
+            border: 1px solid var(--gray);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .dashboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .dashboard-table th {
+            padding: 15px;
+            border-bottom: 2px solid var(--gray);
+            color: var(--gray-light);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .dashboard-table td {
+            padding: 20px 15px;
+            border-bottom: 1px solid var(--gray);
+            font-size: 15px;
+        }
+
+        .dashboard-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .badge-time {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .actions-cell {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-action {
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-accept {
+            background: #22c55e;
+            color: var(--dark);
+        }
+
+        .btn-reject {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-action:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        #login-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 100%;
+        }

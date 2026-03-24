@@ -1,0 +1,8 @@
+name = "la-roca-api"
+main = "worker.js"
+compatibility_date = "2024-03-24"
+
+[[d1_databases]]
+binding = "DB" # Este nombre se usa en el worker para referenciar la base de datos
+database_name = "barberia-db" # Cambia esto por el nombre real en Cloudflare
+database_id = "6eb673a2-7cf6-484a-97d4-db484cea990e" # Cambia esto por el ID real de tu base de datos D1

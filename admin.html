@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | La Roca Barber Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific adjustments for Admin Page */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        #login-container {
+            width: 100%;
+            max-width: 500px;
+            animation: fadeIn 0.6s ease;
+        }
+
+        #dashboard-container {
+            width: 100%;
+            max-width: 1000px;
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .admin-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .back-to-site {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: var(--gray-light);
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-site:hover {
+            color: var(--primary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-to-site">← Volver al sitio</a>
+
+    <main>
+        <!-- LOGIN SECTION -->
+        <div id="login-container">
+            <div class="admin-header">
+                <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+                    <div class="logo-icon">💈</div>
+                    <div class="logo-text">LA <span>ROCA</span></div>
+                </div>
+                <h2 class="section-title" style="font-size: 40px;">ACCESO STAFF</h2>
+                <p class="section-subtitle">Ingresa tus credenciales para gestionar las reservas.</p>
+            </div>
+            
+            <form id="loginForm" class="contact-form">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" id="loginPassword" placeholder="********" required>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                    Ingresar →
+                </button>
+                <p id="loginError" style="color: var(--primary); text-align: center; margin-top: 15px; display: none;">Credenciales incorrectas</p>
+            </form>
+        </div>
+
+        <!-- DASHBOARD SECTION -->
+        <div id="dashboard-container">
+            <div class="admin-header">
+                <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+                    <div class="logo-icon">💈</div>
+                    <div class="logo-text">LA <span>ROCA</span></div>
+                </div>
+                <h2 class="section-title" style="font-size: 40px;">GESTIÓN DE CITAS</h2>
+                <p class="section-subtitle">Panel de administración de reservas diarias.</p>
+            </div>
+
+            <div class="table-responsive">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre Cliente</th>
+                            <th>Horario</th>
+                            <th>Teléfono</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dashboardTableBody">
+                        <tr>
+                            <td>Seba Meli Álvarez</td>
+                            <td><span class="badge-time">09:30</span></td>
+                            <td>+56 9 1234 5678</td>
+                            <td class="actions-cell">
+                                <button class="btn-action btn-accept">Aceptar</button>
+                                <button class="btn-action btn-reject">Rechazar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Juan Pérez</td>
+                            <td><span class="badge-time">11:00</span></td>
+                            <td>+56 9 8765 4321</td>
+                            <td class="actions-cell">
+                                <button class="btn-action btn-accept">Aceptar</button>
+                                <button class="btn-action btn-reject">Rechazar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cristian Soto</td>
+                            <td><span class="badge-time">14:00</span></td>
+                            <td>+56 9 5555 4444</td>
+                            <td class="actions-cell">
+                                <button class="btn-action btn-accept">Aceptar</button>
+                                <button class="btn-action btn-reject">Rechazar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button id="logoutBtn" class="btn-secondary">Cerrar Sesión</button>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background: transparent; border: none; padding: 20px 0;">
+        <div class="container" style="text-align: center; font-size: 12px; color: var(--gray-light);">
+            © 2024 La Roca Barber Shop · Panel Administrativo Privado
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>

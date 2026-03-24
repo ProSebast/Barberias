@@ -105,6 +105,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Definir globalmente para los botones generados dinámicamente
     window.updateStatus = async (id, nuevoEstado) => {
         if (nuevoEstado === 'rechazada' && !confirm('¿Estás seguro de rechazar esta reserva?')) return;
-        alert('Funcionalidad de actualización de estado pendiente de endpoint en Worker.');
+        
+        try {
+            const response = await fetch(`${API_BASE_URL}/admin/reservas/status`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id, estado: nuevoEstado })
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                loadReservas();
+            } else {
+                alert('Error al actualizar el estado: ' + (result.error || 'Desconocido'));
+            }
+        } catch (error) {
+            console.error("Error actualizando estado:", error);
+            alert('Error de conexión al actualizar estado');
+        }
     };
 });

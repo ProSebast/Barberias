@@ -53,8 +53,8 @@ export default {
           "INSERT INTO reservas (nombre_cliente, telefono, barbero_id, fecha, hora, estado) VALUES (?, ?, ?, ?, ?, 'pendiente')"
         ).bind(nombre_cliente, telefono, barbero_id, fecha, hora).run();
 
-        // Actualizar disponibilidad del horario (opcional según tu lógica)
-        // await env.DB.prepare("UPDATE horarios SET disponibilidad = 0 WHERE barbero_id = ? AND hora = ?").bind(barbero_id, hora).run();
+        // Actualizar disponibilidad del horario
+        await env.DB.prepare("UPDATE horarios SET disponibilidad = 0 WHERE barbero_id = ? AND hora = ?").bind(barbero_id, hora).run();
 
         return new Response(JSON.stringify({ success: true }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
       }
@@ -65,6 +65,22 @@ export default {
           "SELECT id, nombre_cliente, telefono, fecha, hora, estado FROM reservas ORDER BY fecha DESC, hora DESC"
         ).all();
         return new Response(JSON.stringify(results), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
+      }
+
+      // 6. ACTUALIZAR ESTADO DE RESERVA (desde admin.html)
+      if (url.pathname === "/api/admin/reservas/status" && method === "POST") {
+        const { id, estado } = await request.json();
+        
+        // Si se rechaza, podríamos volver a poner el horario como disponible
+        if (estado === 'rechazada') {
+          const reserva = await env.DB.prepare("SELECT barbero_id, hora FROM reservas WHERE id = ?").bind(id).first();
+          if (reserva) {
+            await env.DB.prepare("UPDATE horarios SET disponibilidad = 1 WHERE barbero_id = ? AND hora = ?").bind(reserva.barbero_id, reserva.hora).run();
+          }
+        }
+
+        await env.DB.prepare("UPDATE reservas SET estado = ? WHERE id = ?").bind(estado, id).run();
+        return new Response(JSON.stringify({ success: true }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
       }
 
       return new Response("Not Found", { status: 404 });

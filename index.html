@@ -119,24 +119,6 @@
                         <span class="service-time">⏱️ 60 min</span>
                     </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3>DISEÑO ARTÍSTICO</h3>
-                    <p>Líneas, figuras y diseños personalizados en tu corte.</p>
-                    <div class="service-price">
-                        <span class="price">$5.000</span>
-                        <span class="service-time">⏱️ 20 min</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">💎</div>
-                    <h3>EXPERIENCIA VIP</h3>
-                    <p>Corte + barba + masaje facial + productos premium.</p>
-                    <div class="service-price">
-                        <span class="price">$25.000</span>
-                        <span class="service-time">⏱️ 90 min</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -172,12 +154,6 @@
                     <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=400&h=300&fit=crop" alt="Diseño artístico">
                     <div class="gallery-overlay">
                         <span class="gallery-tag">Diseño</span>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=300&fit=crop" alt="Low fade">
-                    <div class="gallery-overlay">
-                        <span class="gallery-tag">Low Fade</span>
                     </div>
                 </div>
             </div>
@@ -217,7 +193,7 @@
                     <div class="form-step active" data-step="1">
                         <h3 style="text-align: center; margin-bottom: 30px; font-size: 28px;">ELIGE TU BARBERO</h3>
                         <div class="barber-selection" id="barberList">
-                            <!-- Datos por defecto (Se mostrarán mientras carga o si falla la API) -->
+                            <!-- Datos por defecto mientras carga -->
                             <div class="barber-option" data-id="1" data-nombre="Seba Meli Álvarez">
                                 <div class="barber-avatar">👨‍🦱</div>
                                 <h4>SEBA MELI ÁLVAREZ</h4>
@@ -274,7 +250,7 @@
                         <div class="datetime-grid">
                             <div class="form-group">
                                 <label>Fecha</label>
-                                <input type="date" id="bookingDate" min="">
+                                <input type="date" id="bookingDate">
                             </div>
                             <div class="form-group">
                                 <label>Horarios Disponibles</label>
@@ -282,11 +258,9 @@
                                     <div class="time-slot" data-time="09:00">09:00</div>
                                     <div class="time-slot" data-time="10:00">10:00</div>
                                     <div class="time-slot" data-time="11:00">11:00</div>
-                                    <div class="time-slot" data-time="12:00">12:00</div>
                                     <div class="time-slot" data-time="15:00">15:00</div>
                                     <div class="time-slot" data-time="16:00">16:00</div>
                                     <div class="time-slot" data-time="17:00">17:00</div>
-                                    <div class="time-slot" data-time="18:00">18:00</div>
                                 </div>
                             </div>
                         </div>
@@ -345,7 +319,6 @@
             <div class="section-header">
                 <div class="section-tag">El Equipo</div>
                 <h2 class="section-title">NUESTROS BARBEROS</h2>
-                <p class="section-subtitle">Profesionales apasionados por su arte. Conoce a quienes harán magia con tu look.</p>
             </div>
             <div class="team-grid">
                 <div class="team-card">
@@ -353,10 +326,9 @@
                     <div class="team-info">
                         <h3>SEBA MELI ÁLVAREZ</h3>
                         <p class="team-role">Fundador & Master Barber</p>
-                        <p class="team-bio">Especialista en fades y cortes urbanos. Pasión por el detalle y la excelencia.</p>
                         <div class="team-social">
-                            <a href="#" title="Instagram">📷</a>
-                            <a href="#" title="TikTok">🎵</a>
+                            <a href="#">📷</a>
+                            <a href="#">🎵</a>
                         </div>
                     </div>
                 </div>
@@ -369,8 +341,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Encuéntranos</div>
-                <h2 class="section-title">UBICACIÓN & HORARIOS</h2>
-                <p class="section-subtitle">Te esperamos en el corazón de Melipilla.</p>
+                <h2 class="section-title">UBICACIÓN</h2>
             </div>
             <div class="location-content">
                 <div class="location-info">
@@ -378,7 +349,49 @@
                         <div class="location-icon">📍</div>
                         <div>
                             <h4>Dirección</h4>
-                            <p>Av. Ortúzar 520, Local 3<br>Melipilla, Región Metropolitana</p>
+                            <p>Av. Ortúzar 520, Melipilla</p>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">📞</div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+56 9 8765 4321</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.8!2d-71.2133!3d-33.6867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMelipilla%2C%20Chile!5e0!3m2!1ses!2scl!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 La Roca Barber Shop · <a href="admin.html" style="color: inherit; text-decoration: none; opacity: 0.5;">Acceso Staff</a></p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-icon">✓</div>
+            <h2>RESERVA EXITOSA</h2>
+            <div class="confirmation-details">
+                <div class="confirmation-item"><span>Código</span><span id="bookingCode">-</span></div>
+                <div class="confirmation-item"><span>Barbero</span><span id="confirmBarber">-</span></div>
+                <div class="confirmation-item"><span>Hora</span><span id="confirmDateTime">-</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>            <p>Av. Ortúzar 520, Local 3<br>Melipilla, Región Metropolitana</p>
                         </div>
                     </div>
                     <div class="location-item">

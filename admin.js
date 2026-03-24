@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logoutBtn');
     const dashboardTableBody = document.getElementById('dashboardTableBody');
 
-    const API_BASE_URL = '/api';
+    const API_BASE_URL = 'https://la-roca-api.seba-meli-alvarez.workers.dev/api';
 
     // Check if session exists
     const isAdminLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';

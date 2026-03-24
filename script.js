@@ -70,7 +70,13 @@
                 const response = await fetch(`${API_BASE_URL}/barberos`);
                 const barberos = await response.json();
                 
-                barberList.innerHTML = '';
+                barberList.innerHTML = ''; // Limpiar mensaje de carga o datos antiguos
+
+                if (barberos.length === 0) {
+                    barberList.innerHTML = '<p style="text-align: center; color: var(--primary); width: 100%;">No hay barberos registrados en el sistema.</p>';
+                    return;
+                }
+
                 barberos.forEach(barbero => {
                     const div = document.createElement('div');
                     div.className = 'barber-option';
@@ -78,7 +84,7 @@
                     div.dataset.nombre = barbero.nombre;
                     div.innerHTML = `
                         <div class="barber-avatar">👨‍🦱</div>
-                        <h4>${barbero.nombre}</h4>
+                        <h4>${barbero.nombre.toUpperCase()}</h4>
                         <p>Barbero Profesional</p>
                     `;
                     div.addEventListener('click', () => selectBarber(div));
@@ -86,7 +92,7 @@
                 });
             } catch (error) {
                 console.error("Error cargando barberos:", error);
-                barberList.innerHTML = '<p style="color: var(--primary);">Error al cargar barberos</p>';
+                barberList.innerHTML = '<p style="text-align: center; color: var(--primary); width: 100%;">Error de conexión: No se pudieron cargar los barberos.</p>';
             }
         }
 

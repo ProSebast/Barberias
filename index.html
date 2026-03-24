@@ -217,8 +217,12 @@
                     <div class="form-step active" data-step="1">
                         <h3 style="text-align: center; margin-bottom: 30px; font-size: 28px;">ELIGE TU BARBERO</h3>
                         <div class="barber-selection" id="barberList">
-                            <!-- Se cargará dinámicamente desde D1 -->
-                            <p style="text-align: center; color: var(--gray-light); width: 100%;">Consultando barberos disponibles...</p>
+                            <!-- Datos por defecto (Se mostrarán mientras carga o si falla la API) -->
+                            <div class="barber-option" data-id="1" data-nombre="Seba Meli Álvarez">
+                                <div class="barber-avatar">👨‍🦱</div>
+                                <h4>SEBA MELI ÁLVAREZ</h4>
+                                <p>Barbero Principal</p>
+                            </div>
                         </div>
                         <div class="form-navigation">
                             <button class="btn-next" id="toStep2" disabled>Siguiente →</button>
@@ -257,20 +261,6 @@
                                 </div>
                                 <div class="service-option-price">$15.000</div>
                             </div>
-                            <div class="service-option" data-service="Diseño Artístico" data-price="5000" data-duration="20">
-                                <div class="service-option-info">
-                                    <h4>🎨 Diseño Artístico</h4>
-                                    <span>20 minutos</span>
-                                </div>
-                                <div class="service-option-price">$5.000</div>
-                            </div>
-                            <div class="service-option" data-service="Experiencia VIP" data-price="25000" data-duration="90">
-                                <div class="service-option-info">
-                                    <h4>💎 Experiencia VIP</h4>
-                                    <span>90 minutos</span>
-                                </div>
-                                <div class="service-option-price">$25.000</div>
-                            </div>
                         </div>
                         <div class="form-navigation">
                             <button class="btn-back" id="backToStep1">← Volver</button>
@@ -290,25 +280,13 @@
                                 <label>Horarios Disponibles</label>
                                 <div class="time-slots" id="timeSlots">
                                     <div class="time-slot" data-time="09:00">09:00</div>
-                                    <div class="time-slot" data-time="09:30">09:30</div>
                                     <div class="time-slot" data-time="10:00">10:00</div>
-                                    <div class="time-slot" data-time="10:30">10:30</div>
                                     <div class="time-slot" data-time="11:00">11:00</div>
-                                    <div class="time-slot" data-time="11:30">11:30</div>
                                     <div class="time-slot" data-time="12:00">12:00</div>
-                                    <div class="time-slot disabled" data-time="12:30">12:30</div>
-                                    <div class="time-slot disabled" data-time="13:00">13:00</div>
-                                    <div class="time-slot" data-time="14:00">14:00</div>
-                                    <div class="time-slot" data-time="14:30">14:30</div>
                                     <div class="time-slot" data-time="15:00">15:00</div>
-                                    <div class="time-slot" data-time="15:30">15:30</div>
                                     <div class="time-slot" data-time="16:00">16:00</div>
-                                    <div class="time-slot" data-time="16:30">16:30</div>
                                     <div class="time-slot" data-time="17:00">17:00</div>
-                                    <div class="time-slot" data-time="17:30">17:30</div>
                                     <div class="time-slot" data-time="18:00">18:00</div>
-                                    <div class="time-slot" data-time="18:30">18:30</div>
-                                    <div class="time-slot" data-time="19:00">19:00</div>
                                 </div>
                             </div>
                         </div>
@@ -373,33 +351,9 @@
                 <div class="team-card">
                     <div class="team-image">👨‍🦱</div>
                     <div class="team-info">
-                        <h3>CARLOS "EL ROCA"</h3>
+                        <h3>SEBA MELI ÁLVAREZ</h3>
                         <p class="team-role">Fundador & Master Barber</p>
-                        <p class="team-bio">8 años de experiencia. Especialista en fades y cortes urbanos. Formado en academias de Santiago y Buenos Aires.</p>
-                        <div class="team-social">
-                            <a href="#" title="Instagram">📷</a>
-                            <a href="#" title="TikTok">🎵</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">🧔</div>
-                    <div class="team-info">
-                        <h3>MIGUEL ÁNGEL</h3>
-                        <p class="team-role">Senior Barber</p>
-                        <p class="team-bio">Experto en barbas y afeitado tradicional con navaja. 6 años perfeccionando el arte del grooming masculino.</p>
-                        <div class="team-social">
-                            <a href="#" title="Instagram">📷</a>
-                            <a href="#" title="TikTok">🎵</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <div class="team-image">👱</div>
-                    <div class="team-info">
-                        <h3>DIEGO FUENTES</h3>
-                        <p class="team-role">Creative Barber</p>
-                        <p class="team-bio">El artista del equipo. Especializado en diseños, líneas y cortes creativos. Si lo puedes imaginar, él lo puede crear.</p>
+                        <p class="team-bio">Especialista en fades y cortes urbanos. Pasión por el detalle y la excelencia.</p>
                         <div class="team-social">
                             <a href="#" title="Instagram">📷</a>
                             <a href="#" title="TikTok">🎵</a>
@@ -435,13 +389,81 @@
                         </div>
                     </div>
                     <div class="location-item">
-                        <div class="location-icon">✉️</div>
+                        <div class="location-icon">🕐</div>
                         <div>
-                            <h4>Email</h4>
-                            <p>hola@larocabarbershop.cl</p>
+                            <h4>Horarios de Atención</h4>
+                            <div class="schedule-grid">
+                                <div class="schedule-item"><span class="schedule-day">Lunes-Viernes</span><span class="schedule-time">09:00 - 19:00</span></div>
+                                <div class="schedule-item"><span class="schedule-day">Sábado</span><span class="schedule-time">10:00 - 18:00</span></div>
+                                <div class="schedule-item"><span class="schedule-day">Domingo</span><span class="schedule-time" style="color: var(--primary);">Cerrado</span></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="location-item">
+                </div>
+                <div class="location-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.8!2d-71.2133!3d-33.6867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMelipilla%2C%20Chile!5e0!3m2!1ses!2scl!4v1234567890"
+                        allowfullscreen="" loading="lazy" title="Ubicación La Roca">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTACT SECTION -->
+    <section id="contacto">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Contáctanos</div>
+                <h2 class="section-title">¿TIENES PREGUNTAS?</h2>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group"><label>Nombre</label><input type="text" id="contactName" required></div>
+                        <div class="form-group"><label>Email</label><input type="email" id="contactEmail" required></div>
+                        <div class="form-group"><label>Mensaje</label><textarea id="contactMessage" rows="4" required></textarea></div>
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Enviar Mensaje →</button>
+                    </form>
+                </div>
+                <div class="contact-info-section">
+                    <div class="social-links">
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🎵</a>
+                        <a href="https://wa.me/56987654321" class="social-link">📱</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 La Roca Barber Shop. Todos los derechos reservados.</p>
+                <p>Hecho con 🔥 en Melipilla</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-icon">✓</div>
+            <h2>¡RESERVA CONFIRMADA!</h2>
+            <div class="confirmation-details">
+                <div class="confirmation-item"><span>Código</span><span id="bookingCode" style="color: var(--primary); font-weight: 700;">-</span></div>
+                <div class="confirmation-item"><span>Barbero</span><span id="confirmBarber">-</span></div>
+                <div class="confirmation-item"><span>Servicio</span><span id="confirmService">-</span></div>
+                <div class="confirmation-item"><span>Fecha y Hora</span><span id="confirmDateTime">-</span></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>   <div class="location-item">
                         <div class="location-icon">🕐</div>
                         <div>
                             <h4>Horarios de Atención</h4>
